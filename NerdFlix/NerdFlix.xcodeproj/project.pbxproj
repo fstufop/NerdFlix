@@ -12,8 +12,6 @@
 		2A4D41BC26FEB83000358E07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D41BA26FEB83000358E07 /* LaunchScreen.storyboard */; };
 		2A4D41C926FEC13D00358E07 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4D41C726FEC13C00358E07 /* HomeViewController.swift */; };
 		2A4D41CA26FEC13D00358E07 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D41C826FEC13C00358E07 /* HomeViewController.xib */; };
-		2A4D41CF26FEC6CD00358E07 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4D41CD26FEC6CD00358E07 /* TableViewCell.swift */; };
-		2A4D41D026FEC6CD00358E07 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D41CE26FEC6CD00358E07 /* TableViewCell.xib */; };
 		2AB7179B26FF4D570044C8F6 /* Netflix.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2AB7179A26FF4D570044C8F6 /* Netflix.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -25,8 +23,6 @@
 		2A4D41BD26FEB83000358E07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A4D41C726FEC13C00358E07 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2A4D41C826FEC13C00358E07 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		2A4D41CD26FEC6CD00358E07 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		2A4D41CE26FEC6CD00358E07 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		2AB7179A26FF4D570044C8F6 /* Netflix.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Netflix.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +85,6 @@
 		2A4D41C526FEC10D00358E07 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				2A4D41CB26FEC65D00358E07 /* Cells */,
 				2A4D41C626FEC11700358E07 /* Home */,
 			);
 			path = Scenes;
@@ -102,15 +97,6 @@
 				2A4D41C826FEC13C00358E07 /* HomeViewController.xib */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		2A4D41CB26FEC65D00358E07 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				2A4D41CD26FEC6CD00358E07 /* TableViewCell.swift */,
-				2A4D41CE26FEC6CD00358E07 /* TableViewCell.xib */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +158,6 @@
 			files = (
 				2A4D41BC26FEB83000358E07 /* LaunchScreen.storyboard in Resources */,
 				2AB7179B26FF4D570044C8F6 /* Netflix.mp3 in Resources */,
-				2A4D41D026FEC6CD00358E07 /* TableViewCell.xib in Resources */,
 				2A4D41B926FEB83000358E07 /* Assets.xcassets in Resources */,
 				2A4D41CA26FEC13D00358E07 /* HomeViewController.xib in Resources */,
 			);
@@ -185,7 +170,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A4D41CF26FEC6CD00358E07 /* TableViewCell.swift in Sources */,
 				2A4D41B026FEB82F00358E07 /* AppDelegate.swift in Sources */,
 				2A4D41C926FEC13D00358E07 /* HomeViewController.swift in Sources */,
 			);

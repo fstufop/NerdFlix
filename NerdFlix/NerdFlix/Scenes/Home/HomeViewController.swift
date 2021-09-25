@@ -20,6 +20,17 @@ class HomeViewController: UIViewController {
     //MARK: - Overrides
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tudumPlayer()
+        player.play()
+        setupNavigation()
+        title = "NerdFlix"
+    }
+    //MARK: - Methods
+    func tudumPlayer(){
         do{
             let path = Bundle.main.path(forResource: "Netflix", ofType: "mp3")
             try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: path!))
@@ -27,16 +38,15 @@ class HomeViewController: UIViewController {
         catch{
             print(error)
         }
-        player.play()
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    //MARK: - Methods
     
+    func setupNavigation(){
+        navigationController?.navigationBar.barTintColor = .darkGray
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
     //MARK: - Extensions
     
-  
     
-
+    
+    
 }
