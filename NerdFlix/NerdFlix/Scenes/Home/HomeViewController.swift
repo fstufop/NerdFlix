@@ -9,7 +9,6 @@ import UIKit
 import AVFoundation
 import Kingfisher
 
-
 class HomeViewController: UIViewController {
     
     
@@ -25,8 +24,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var imageViewNewMovie: UIImageView!
     @IBOutlet weak var labelNewMovieName: UILabel!
     @IBOutlet weak var labelActorsNewMovie: UILabel!
+    @IBOutlet weak var collectionViewTop250Films: UICollectionView!
+    @IBOutlet weak var collectionViewCommingSoon: UICollectionView!
     //MARK: - Actions
-   
+    
+    
     
     //MARK: - Overrides
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +43,8 @@ class HomeViewController: UIViewController {
         setupUI()
         bindEvents()
         viewModel.getPopularMovies()
+        viewModel.getTop250Films()
+        viewModel.getCommingSoon()
         title = "NerdFlix"
     }
     //MARK: - Methods
@@ -66,18 +70,32 @@ class HomeViewController: UIViewController {
     }
     
     func setupCollections() {
+        collectionViewTop250Films.dataSource = self
+        collectionViewTop250Films.delegate = self
+        collectionViewTop250Films.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
         collectionViewForYou.dataSource = self
         collectionViewForYou.delegate = self
         collectionViewForYou.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
+        collectionViewCommingSoon.dataSource = self
+        collectionViewCommingSoon.delegate = self
+        collectionViewCommingSoon.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
     }
     func bindEvents() {
         viewModel.updateLayout = { [weak self] in
             DispatchQueue.main.async {
                 self?.collectionViewForYou.reloadData()
-                
             }
         }
-        
+        viewModel.updateLayout2 = { [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionViewTop250Films.reloadData()
+            }
+        }
+        viewModel.updateLayout3 = { [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionViewCommingSoon.reloadData()
+            }
+        }
     }
 }
 
@@ -92,16 +110,18 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.getMoviesQuantity()
+            return viewModel.getMoviesQuantity()
+   
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) ->
         UICollectionViewCell {
-        let intem = viewModel.getMovieAt(indexPath.item)
+        let item = viewModel.getMovieAt(indexPath.item)
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.reuseIdentifier, for: indexPath) as? MovieCollectionViewCell else {
             return UICollectionViewCell.init(frame: .zero)
         }
-        cell.setupModel(intem)
+        cell.setupModel(item)
         return cell
     }
     
