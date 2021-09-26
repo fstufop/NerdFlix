@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (5.4.4)
+  - Kingfisher (7.0.0)
+  - netfox (1.19.0)
+  - SkeletonView (1.25.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - Kingfisher (~> 7.0)
+  - netfox
+  - SkeletonView
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Kingfisher
+    - netfox
+    - SkeletonView
+
+SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
+  netfox: efeec1d23406df6cd605212f09a40957bb5654eb
+  SkeletonView: 77079530e1348a72f48b79ae30dcb966c1b18b6a
+
+PODFILE CHECKSUM: d84ba2778017aeb9f8a3cc9f85139e81e8f4f490
+
+COCOAPODS: 1.11.2
