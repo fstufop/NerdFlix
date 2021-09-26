@@ -22,8 +22,9 @@ class HomeViewModel {
         return movies[index]
         
     }
+  
     
-    func getPopularMovies() {
+   func getPopularMovies() {
         AF.request("https://imdb-api.com/en/API/MostPopularMovies/k_3g4a43n5", method: .get).responseJSON { (response) in
             
             guard let data = response.data else {return}
@@ -31,7 +32,8 @@ class HomeViewModel {
             do {
                 let moviesModel = try JSONDecoder().decode(MoviesModel.self, from: data)
                 self.movies = moviesModel.items ?? []
-                self.updateLayout?()  
+                self.updateLayout?()
+                print("======> Responses" ,response)
             } catch (let error) {
                 self.shoulShowErrorMessage?(error.localizedDescription )
                 

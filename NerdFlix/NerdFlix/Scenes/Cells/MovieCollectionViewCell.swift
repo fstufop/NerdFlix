@@ -34,10 +34,11 @@ class MovieCollectionViewCell: UICollectionViewCell {
         guard let urlImage = movie?.image else { return }
         if let url = URL(string: urlImage) {
             imageMovie.kf.setImage(with: url)
-            
+            print(urlImage)
         }
         
     }
+    
     
     
 }

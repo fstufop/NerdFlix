@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import Kingfisher
 
 
 class HomeViewController: UIViewController {
@@ -15,19 +16,25 @@ class HomeViewController: UIViewController {
     
     //MARK: - Properties
     var player = AVAudioPlayer()
+   
     private var viewModel: HomeViewModel = HomeViewModel()
+    private var movieCollectionModel: MovieCollectionViewCell = MovieCollectionViewCell()
     //MARK: - Outlets
-    
-    //MARK: - Actions
     @IBOutlet weak var collectionViewForYou: UICollectionView!
+    @IBOutlet weak var imageViewNewMovie: UIImageView!
+    @IBOutlet weak var labelNewMovieName: UILabel!
+    @IBOutlet weak var labelActorsNewMovie: UILabel!
+    //MARK: - Actions
+   
     
     //MARK: - Overrides
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let url = URL(string: " ")
+        imageViewNewMovie.kf.setImage(with: url)
         tudumPlayer()
         player.play()
         setupNavigation()
@@ -66,6 +73,7 @@ class HomeViewController: UIViewController {
         
     }
 }
+
 //MARK: - Extensions
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -73,7 +81,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         return 30
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width/2)-20 , height: 260)
+        return CGSize(width: (UIScreen.main.bounds.width/2)-20 , height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
