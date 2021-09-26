@@ -27,9 +27,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var labelActorsNewMovie: UILabel!
     @IBOutlet weak var collectionViewTop250Films: UICollectionView!
     @IBOutlet weak var collectionViewCommingSoon: UICollectionView!
-    //MARK: - Actions
-    
-    
     
     //MARK: - Overrides
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +45,13 @@ class HomeViewController: UIViewController {
         viewModel.getCommingSoon()
         title = "NerdFlix"
     }
+    //MARK: - Actions
+    
+    @IBAction func handlerSeeMoreMostPopular(_ sender: Any) {
+        showDetails()
+    }
+    
+    
     //MARK: - Methods
     func tudumPlayer(){
         do{
@@ -63,6 +67,9 @@ class HomeViewController: UIViewController {
         labelNewMovieName.text = "Kate"
         labelActorsNewMovie.text = "lorem psum - lorempseu - lorepsum"
         labelActorsNewMovie.textColor = .gray
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
+        navigationItem.backBarButtonItem?.tintColor = .white
         
     }
     func setupNavigation(){
@@ -82,6 +89,12 @@ class HomeViewController: UIViewController {
         collectionViewCommingSoon.dataSource = self
         collectionViewCommingSoon.delegate = self
         collectionViewCommingSoon.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
+    }
+    
+    func showDetails(){
+        let controller = SeeMoreViewController()
+        navigationController?.pushViewController(controller, animated: true)
+        
     }
     func bindEvents() {
         viewModel.updateLayout = { [weak self] in
