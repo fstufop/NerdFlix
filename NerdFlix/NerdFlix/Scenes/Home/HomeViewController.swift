@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import Kingfisher
+import SkeletonView
 
 class HomeViewController: UIViewController {
     
@@ -73,6 +74,8 @@ class HomeViewController: UIViewController {
         collectionViewTop250Films.dataSource = self
         collectionViewTop250Films.delegate = self
         collectionViewTop250Films.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
+//        collectionViewForYou.isSkeletonable = true
+//        collectionViewForYou.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
         collectionViewForYou.dataSource = self
         collectionViewForYou.delegate = self
         collectionViewForYou.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
@@ -101,6 +104,15 @@ class HomeViewController: UIViewController {
 
 //MARK: - Extensions
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    
+//    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+//        return MovieCollectionViewCell.reuseIdentifier
+//    }
+//    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return viewModel.getMoviesQuantity()
+//    }
+//
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 30
@@ -111,9 +123,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             return viewModel.getMoviesQuantity()
+        
+    }
    
        
-    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) ->
         UICollectionViewCell {

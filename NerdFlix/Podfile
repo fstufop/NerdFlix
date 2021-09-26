@@ -9,4 +9,5 @@ target 'NerdFlix' do
   pod 'Alamofire'
   pod 'Kingfisher', '~> 7.0'
   pod 'netfox'
+  pod 'SkeletonView'
 end

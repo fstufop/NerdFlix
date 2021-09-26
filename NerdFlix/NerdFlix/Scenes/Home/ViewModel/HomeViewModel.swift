@@ -35,7 +35,7 @@ class HomeViewModel {
     
 
    func getPopularMovies() {
-        AF.request("https://imdb-api.com/en/API/MostPopularMovies/k_vec7qr9b", method: .get).responseJSON { (response) in
+        AF.request("https://imdb-api.com/en/API/MostPopularMovies/k_4dite83d", method: .get).responseJSON { (response) in
             
             guard let data = response.data else {return}
             
@@ -51,7 +51,7 @@ class HomeViewModel {
         }
     }
     func getTop250Films() {
-         AF.request("https://imdb-api.com/en/API/Top250Movies/k_vec7qr9b", method: .get).responseJSON { (response) in
+         AF.request("https://imdb-api.com/en/API/Top250Movies/k_4dite83d", method: .get).responseJSON { (response) in
              
              guard let data = response.data else {return}
              
@@ -69,7 +69,7 @@ class HomeViewModel {
          }
      }
     func getCommingSoon() {
-         AF.request("https://imdb-api.com/en/API/ComingSoon/k_vec7qr9b", method: .get).responseJSON { (response) in
+         AF.request("https://imdb-api.com/en/API/ComingSoon/k_4dite83d", method: .get).responseJSON { (response) in
              
              guard let data = response.data else {return}
              

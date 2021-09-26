@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import SkeletonView
 
 class MovieCollectionViewCell: UICollectionViewCell {
     //MARK: - Properties
@@ -25,7 +26,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     //MARK: - Methods
     func setupUI() {
-        imageMovie.layer.cornerRadius = 20
+        imageMovie.layer.cornerRadius = 30
         
     }
     func setupModel(_ movie: MovieItemModel?) {
