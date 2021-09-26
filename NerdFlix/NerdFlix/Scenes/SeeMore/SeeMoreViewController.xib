@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SeeMoreViewController" customModule="NerdFlix" customModuleProvider="target">
             <connections>
+                <outlet property="collectioViewSeeMore" destination="12h-y2-acz" id="Nwk-Ts-bg5"/>
+                <outlet property="labelClassSeeMore" destination="c1c-cU-caU" id="HOt-on-kVg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,8 +36,8 @@
                         <constraint firstItem="c1c-cU-caU" firstAttribute="leading" secondItem="Uzj-pB-iyy" secondAttribute="leading" constant="8" id="pbs-L8-BSO"/>
                     </constraints>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="12h-y2-acz">
-                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="12h-y2-acz">
+                    <rect key="frame" x="5" y="94" width="404" height="768"/>
                     <color key="backgroundColor" red="0.14833891390000001" green="0.14836579559999999" blue="0.14833039049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="En1-hb-Djk">
                         <size key="itemSize" width="128" height="128"/>
@@ -50,8 +52,8 @@
             <constraints>
                 <constraint firstItem="Uzj-pB-iyy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5I6-gX-xjt"/>
                 <constraint firstItem="Uzj-pB-iyy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="GMj-oR-Ii0"/>
-                <constraint firstItem="12h-y2-acz" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="nlN-Kk-9rN"/>
-                <constraint firstItem="12h-y2-acz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rm6-un-yGk"/>
+                <constraint firstItem="12h-y2-acz" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-5" id="nlN-Kk-9rN"/>
+                <constraint firstItem="12h-y2-acz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="rm6-un-yGk"/>
                 <constraint firstItem="Uzj-pB-iyy" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="tfN-6y-L2t"/>
                 <constraint firstItem="12h-y2-acz" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="yDp-Qu-r43"/>
                 <constraint firstItem="12h-y2-acz" firstAttribute="top" secondItem="Uzj-pB-iyy" secondAttribute="bottom" id="z6y-ru-rkX"/>

@@ -103,6 +103,9 @@
                                             <state key="normal" title="Ver mais">
                                                 <color key="titleColor" red="0.85162335629999997" green="0.60630279779999996" blue="0.17821988459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="handlerSeeMoreMostPopular:" destination="-1" eventType="touchUpInside" id="KSn-qE-SL8"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
