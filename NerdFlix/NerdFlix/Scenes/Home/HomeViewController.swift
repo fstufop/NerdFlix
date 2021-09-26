@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     
     //MARK: - Properties
     var player = AVAudioPlayer()
+    private var viewModel: HomeViewModel = HomeViewModel()
     //MARK: - Outlets
     
     //MARK: - Actions
@@ -31,6 +32,8 @@ class HomeViewController: UIViewController {
         player.play()
         setupNavigation()
         setupCollections()
+        bindEvents()
+        viewModel.getPopularMovies()
         title = "NerdFlix"
     }
     //MARK: - Methods
@@ -54,30 +57,37 @@ class HomeViewController: UIViewController {
         collectionViewForYou.delegate = self
         collectionViewForYou.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
     }
+    func bindEvents() {
+        viewModel.updateLayout = { [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionViewForYou.reloadData()
+            }
+        }
+        
+    }
 }
 //MARK: - Extensions
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 30
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (UIScreen.main.bounds.width/2)-20 , height: 260)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.getMoviesQuantity()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) ->
+        UICollectionViewCell {
+        let intem = viewModel.getMovieAt(indexPath.item)
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.reuseIdentifier, for: indexPath) as? MovieCollectionViewCell else {
             return UICollectionViewCell.init(frame: .zero)
         }
+        cell.setupModel(intem)
         return cell
     }
     
 }
-
-//extension HomeViewController: UICollectionViewDelegate {
-//
-//}

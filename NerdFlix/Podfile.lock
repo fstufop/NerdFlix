@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (5.4.4)
+  - Kingfisher (7.0.0)
+  - netfox (1.19.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Kingfisher (~> 7.0)
+  - netfox
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Kingfisher
+    - netfox
+
+SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
+  netfox: efeec1d23406df6cd605212f09a40957bb5654eb
+
+PODFILE CHECKSUM: 5b385bb82207562dbd28ff5ae5e58f9293892381
+
+COCOAPODS: 1.11.2

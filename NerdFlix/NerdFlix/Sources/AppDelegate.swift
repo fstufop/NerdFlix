@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import netfox
 
 
 @main
@@ -15,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    
+        NFX.sharedInstance().start()
         
         let viewController = HomeViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
