@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     
     //MARK: - Properties
     var player = AVAudioPlayer()
+    let url = URL(string: "https://m.media-amazon.com/images/M/MV5BN2IyYzI4YmQtNzBmMi00Mjg3LWI4NTMtNmZjNjk3YjIwZmJhXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX128_CR0,3,128,176_AL_.jpg")
    
     private var viewModel: HomeViewModel = HomeViewModel()
     private var movieCollectionModel: MovieCollectionViewCell = MovieCollectionViewCell()
@@ -33,12 +34,11 @@ class HomeViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: " ")
-        imageViewNewMovie.kf.setImage(with: url)
         tudumPlayer()
         player.play()
         setupNavigation()
         setupCollections()
+        setupUI()
         bindEvents()
         viewModel.getPopularMovies()
         title = "NerdFlix"
@@ -53,7 +53,13 @@ class HomeViewController: UIViewController {
             print(error)
         }
     }
-    
+    func setupUI(){
+        imageViewNewMovie.kf.setImage(with: url)
+        labelNewMovieName.text = "Kate"
+        labelActorsNewMovie.text = "lorem psum - lorempseu - lorepsum"
+        labelActorsNewMovie.textColor = .gray
+        
+    }
     func setupNavigation(){
         navigationController?.navigationBar.barTintColor = .darkGray
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -68,6 +74,7 @@ class HomeViewController: UIViewController {
         viewModel.updateLayout = { [weak self] in
             DispatchQueue.main.async {
                 self?.collectionViewForYou.reloadData()
+                
             }
         }
         
@@ -81,7 +88,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         return 30
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width/2)-20 , height: 200)
+        return CGSize(width: (UIScreen.main.bounds.width/2)-20 , height: 260)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

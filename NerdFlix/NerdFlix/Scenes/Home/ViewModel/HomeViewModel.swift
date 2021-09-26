@@ -10,7 +10,7 @@ import Alamofire
 
 class HomeViewModel {
     
-    private var movies: [MovieItemModel] = []
+    var movies: [MovieItemModel] = []
     
     var updateLayout: (() -> Void)?
     var shoulShowErrorMessage: ((String) -> Void)?
@@ -25,7 +25,7 @@ class HomeViewModel {
   
     
    func getPopularMovies() {
-        AF.request("https://imdb-api.com/en/API/MostPopularMovies/k_3g4a43n5", method: .get).responseJSON { (response) in
+        AF.request("https://imdb-api.com/en/API/MostPopularMovies/k_vec7qr9b", method: .get).responseJSON { (response) in
             
             guard let data = response.data else {return}
             
