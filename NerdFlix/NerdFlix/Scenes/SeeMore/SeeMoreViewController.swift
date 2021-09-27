@@ -14,6 +14,7 @@ class SeeMoreViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var labelClassSeeMore: UILabel!
     @IBOutlet weak var collectioViewSeeMore: UICollectionView!
+    @IBOutlet weak var labelSectionName: UILabel!
     //MARK: - Actions
 
     //MARK: - Overrides
@@ -22,6 +23,7 @@ class SeeMoreViewController: UIViewController {
         title = "Ver Mais"
         viewModel.getPopularMovies()
         bindEvents()
+        labelSectionName.text = "Para você"
         collectioViewSeeMore.dataSource = self
         collectioViewSeeMore.delegate = self
         collectioViewSeeMore.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
@@ -39,10 +41,10 @@ class SeeMoreViewController: UIViewController {
     //MARK: - Extensions
 extension SeeMoreViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 5
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width/2)-10, height: 400)
+        return CGSize(width: (UIScreen.main.bounds.width/2)-12, height: 400)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.getMoviesQuantity()

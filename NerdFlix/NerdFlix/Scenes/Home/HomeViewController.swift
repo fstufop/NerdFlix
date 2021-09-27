@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     //MARK: - Properties
     var player = AVAudioPlayer()
     let url = URL(string: "https://m.media-amazon.com/images/M/MV5BN2IyYzI4YmQtNzBmMi00Mjg3LWI4NTMtNmZjNjk3YjIwZmJhXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX128_CR0,3,128,176_AL_.jpg")
-   
+    
     private var viewModel: HomeViewModel = HomeViewModel()
     private var movieCollectionModel: MovieCollectionViewCell = MovieCollectionViewCell()
     //MARK: - Outlets
@@ -43,12 +43,13 @@ class HomeViewController: UIViewController {
         viewModel.getPopularMovies()
         viewModel.getTop250Films()
         viewModel.getCommingSoon()
+        
         title = "NerdFlix"
     }
     //MARK: - Actions
     
     @IBAction func handlerSeeMoreMostPopular(_ sender: Any) {
-        showDetails()
+        seeMore()
     }
     
     
@@ -81,8 +82,8 @@ class HomeViewController: UIViewController {
         collectionViewTop250Films.dataSource = self
         collectionViewTop250Films.delegate = self
         collectionViewTop250Films.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
-//        collectionViewForYou.isSkeletonable = true
-//        collectionViewForYou.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
+        //        collectionViewForYou.isSkeletonable = true
+        //        collectionViewForYou.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
         collectionViewForYou.dataSource = self
         collectionViewForYou.delegate = self
         collectionViewForYou.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
@@ -91,8 +92,15 @@ class HomeViewController: UIViewController {
         collectionViewCommingSoon.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
     }
     
-    func showDetails(){
+    func seeMore(){
         let controller = SeeMoreViewController()
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
+    private func showDetails(_ id: String?){
+        guard let idValue = id else { return }
+        let controller = DetailsViewController(idValue)
         navigationController?.pushViewController(controller, animated: true)
         
     }
@@ -117,38 +125,45 @@ class HomeViewController: UIViewController {
 
 //MARK: - Extensions
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
     
-//    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
-//        return MovieCollectionViewCell.reuseIdentifier
-//    }
-//    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return viewModel.getMoviesQuantity()
-//    }
-//
+    
+    //    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+    //        return MovieCollectionViewCell.reuseIdentifier
+    //    }
+    //    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    //        return viewModel.getMoviesQuantity()
+    //    }
+    //
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = viewModel.getMovieAt(indexPath.item)
+        let movieId = item.id
+        showDetails(movieId)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 30
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width/2)-20 , height: 260)
+        return CGSize(width: (UIScreen.main.bounds.width/2)-10 , height: 280)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return viewModel.getMoviesQuantity()
+        return viewModel.getMoviesQuantity()
         
     }
-   
-       
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) ->
-        UICollectionViewCell {
+    UICollectionViewCell {
         let item = viewModel.getMovieAt(indexPath.item)
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.reuseIdentifier, for: indexPath) as? MovieCollectionViewCell else {
             return UICollectionViewCell.init(frame: .zero)
+            }
+            cell.setupModel(item)
+            return cell
+            
         }
-        cell.setupModel(item)
-        return cell
     }
-    
-}
+
+

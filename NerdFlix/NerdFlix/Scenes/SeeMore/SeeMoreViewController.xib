@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="collectioViewSeeMore" destination="12h-y2-acz" id="Nwk-Ts-bg5"/>
                 <outlet property="labelClassSeeMore" destination="c1c-cU-caU" id="HOt-on-kVg"/>
+                <outlet property="labelSectionName" destination="c1c-cU-caU" id="7V1-MK-p8b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
