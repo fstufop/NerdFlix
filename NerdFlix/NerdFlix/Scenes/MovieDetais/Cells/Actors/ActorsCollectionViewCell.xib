@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ActorsCollectionViewCell" customModule="NerdFlix" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="188" height="188"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="188" height="188"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCI-R1-fx4">
+                        <rect key="frame" x="1" y="1" width="186" height="186"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YlG-uW-btu">
+                                <rect key="frame" x="25" y="15" width="136" height="136"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="YlG-uW-btu" secondAttribute="bottom" constant="35" id="DHj-Bd-NNu"/>
+                            <constraint firstAttribute="trailing" secondItem="YlG-uW-btu" secondAttribute="trailing" constant="25" id="cGV-lO-MP4"/>
+                            <constraint firstItem="YlG-uW-btu" firstAttribute="leading" secondItem="UCI-R1-fx4" secondAttribute="leading" constant="25" id="cME-Vr-Xm6"/>
+                            <constraint firstItem="YlG-uW-btu" firstAttribute="top" secondItem="UCI-R1-fx4" secondAttribute="top" constant="15" id="dRe-bj-8yp"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="UCI-R1-fx4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="7gV-sK-hFe"/>
+                <constraint firstAttribute="bottom" secondItem="UCI-R1-fx4" secondAttribute="bottom" constant="1" id="BFX-0p-bNq"/>
+                <constraint firstItem="UCI-R1-fx4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="Z0M-UR-GhE"/>
+                <constraint firstAttribute="trailing" secondItem="UCI-R1-fx4" secondAttribute="trailing" constant="1" id="ZZJ-zr-lEo"/>
+            </constraints>
+            <size key="customSize" width="188" height="188"/>
+            <connections>
+                <outlet property="imageViewBubble" destination="YlG-uW-btu" id="Zed-aq-Vxh"/>
+                <outlet property="viewBubble" destination="UCI-R1-fx4" id="Gfb-8J-yWk"/>
+            </connections>
+            <point key="canvasLocation" x="231.8840579710145" y="164.0625"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
